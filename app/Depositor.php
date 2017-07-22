@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Depositors extends Model
+class Depositor extends Model
 {
     protected $table = 'depositors';
 
     public function userId(){
-        return $this->belongsTo(LinkAppUsers::class);
+        return $this->belongsTo(LinkAppUser::class);
     }
 
     public function disasterId(){
-        return $this->belongsTo(ReliefOperations::class);
+        return $this->belongsTo(ReliefOperation::class);
     }
 }
