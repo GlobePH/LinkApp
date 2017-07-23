@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_news_feed"
+        icon="@drawable/ic_news_feed"
+        title="News Feed"
+        barColorWhenSelected="@color/colorAccent" />
+    <tab
+        id="@+id/tab_relief_operations"
+        icon="@drawable/ic_relief_list"
+        title="Relief Operations"
+        barColorWhenSelected="@color/colorAccent" />
+    <tab
+        id="@+id/tab_activity_logs"
+        icon="@drawable/ic_activity_logs"
+        title="Activity Logs"
+        barColorWhenSelected="@color/colorAccent" />
+</tabs>

@@ -65,17 +65,20 @@ class AndroidController extends Controller
         $arr=array();
         $ctr=0;
         foreach ($deps as $dep) {
+			$dep['name']=ReliefOperation::where('id', $dep['disaster_id'])->first()->name;
             $arr[$ctr]=$dep;
             $ctr++;
         }
         foreach ($vols as $vol) {
+			$vol['name']=ReliefOperation::where('id', $vol['disaster_id'])->first()->name;
+			$vol['amount']=-1;
             $arr[$ctr]=$vol;
             $ctr++;
         }
 
         for ($i=0; $i<count($arr); $i++) {
             for ($j=$i+1; $j<count($arr); $j++) {
-                if ($arr[$i]->created_at > $arr[$j]->created_at) {
+                if ($arr[$i]['created_at'] < $arr[$j]['created_at']) {
                     $a=$arr[$i];
                     $arr[$i]=$arr[$j];
                     $arr[$j]=$a;
