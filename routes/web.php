@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'MainController@index');
+Route::get('/timeline', 'MainController@timeline');
 
 
 Route::group(['prefix' => 'admin'], function () {
@@ -26,4 +27,14 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+});
+
+Route::group(['prefix' => 'android'], function() {
+
+    Route::post('login', 'AndroidController@login');
+    Route::post('register', 'AndroidController@register');
+    Route::post('relief_operation_list', 'AndroidController@relief_operation_list');
+    Route::post('get_activity_log', 'AndroidController@get_activity_log');
+    Route::post('volunteer', 'AndroidController@volunteer');
+    Route::post('deposit', 'AndroidController@deposit');
 });

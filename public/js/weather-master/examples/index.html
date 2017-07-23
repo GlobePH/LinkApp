@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>weather.js</title>
+
+    <!-- Bootstrap - for styling purposes only -->
+    <link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center">Philippines Weather Conditions</h1>
+            <div class="col-sm-6">
+                <h2>Current Conditions</h2>
+                <p id="current"></p>
+            </div>
+            <div class="col-sm-6">
+                <h2>Forecast</h1>
+                <p id="forecast"></p>
+            </div>
+            <div class="col-sm-6">
+                <div id="map"> </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNVEsGMuahOdLSuPo7Y88d2a5oIP3E3TI"></script>
+    <script src="../lib/weather.js"></script>
+    <script src="addMarker.js"></script>
+    <script>
+
+     function currentWeather(city){
+         Weather.getCurrent( city, function( current ) {
+            curDIV.innerHTML = curDIV.innerHTML + "<b>" + city + "</b><br>Temperature: " + current.temperature() + "&deg;K or " +
+                Weather.kelvinToFahrenheit( current.temperature() ) + "&deg;F or " +
+                Weather.kelvinToCelsius( current.temperature() ) + "&deg;C" +
+                "<br />Current Conditions: " + current.conditions() +"<br/>";
+        });
+    }
+    function forecastWeather(city){
+         Weather.getForecast( city, function ( forecast ) {
+            forDIV.innerHTML = forDIV.innerHTML + "<b>" + city + "</b><br>High: " + forecast.high() + "&deg;K or " +
+                Weather.kelvinToFahrenheit( forecast.high() ) + "&deg;F or " +
+                Weather.kelvinToCelsius( forecast.high() ) + "&deg;C<br />Low: " +
+                forecast.low() + "&deg;K or " +
+                Weather.kelvinToFahrenheit( forecast.low() ) + "&deg;F or " +
+                Weather.kelvinToCelsius( forecast.low() ) + "&deg;C <br/>"
+        });
+    }
+    
+    var address = "Taguig City";
+    var cities = ["Abra", "Agusan del Norte", "Agusan del Sur", "Aklan", "Albay", "Antique", "Apayao", "Aurora", "Bataan", "Basilan", "Benguet", "Biliran", "Bohol", "Batangas", "Batanes", "Bukidnon", "Bulacan", "Cagayan", "Camiguin", "Camarines Norte", "Capiz", "Camarines Sur", "Catanduanes", "Cavite", "Cebu", "Compostela Valley", "Davao Oriental", "Davao del Sur", "Davao del Norte", "Dinagat Islands", "Davao Occidental", "Eastern Samar", "Guimaras", "Ifugao", "Iloilo", "Ilocos Norte", "Ilocos Sur", "Isabela", "Kalinga", "Laguna", "Lanao del Norte", "Lanao del Sur", "Leyte", "La Union", "Marinduque", "Maguindanao", "Masbate", "Mindoro Occidental", "Mindoro Oriental", "Metro Manila", "Mountain Province", "Misamis Occidental", "Misamis Oriental", "Cotabato", "Negros Occidental", "Negros Oriental", "Northern Samar", "Nueva Ecija", "Nueva Vizcaya", "Pampanga", "Pangasinan", "Palawan", "Quezon", "Quirino", "Rizal", "Romblon", "Sarangani", "South Cotabato", "Siquijor", "Southern Leyte", "Sulu", "Sorsogon", "Sultan Kudarat", "Surigao del Norte", "Surigao del Sur", "Tarlac", "Tawi-Tawi", "Samar", "Zamboanga del Norte", "Zamboanga del Sur", "Zambales", "Zamboanga Sibugay"]; 
+    var count;
+    var curDIV = document.getElementById("current");
+    var forDIV = document.getElementById("forecast");
+    var city;
+    cities.sort();    
+    for(count = 0; count < 82; count++){
+        city = cities[count];
+        currentWeather(city);
+        codeAddress(city);
+    }
+    cities.sort();
+    for(count = 0; count < 82; count++){
+        city = cities[count];
+        forecastWeather(city);
+        //process(cities\);*/
+    }
+
+   
+    </script>
+    <body>
+</html>

@@ -14,4 +14,8 @@ class MainController extends Controller
         
         return view('welcome', $data);
     }
+
+    public function timeline() {
+    	return view('timeline');
+    }
 }
