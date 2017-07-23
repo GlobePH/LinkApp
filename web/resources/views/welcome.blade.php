@@ -54,14 +54,14 @@
 
 <!--LIST-->
 <div class="onepage">
-    <h2><span class="title-main">EVACUATION LIST AND MAPS</span></h2>
+    <h2><span class="title-main">EVACUATION LIST AND MAP</span></h2>
     <div class="backmaps" id="map"></div></div>
 
 
     <div class="col-md-4 list">
         <table class="table">
             <thead>
-            <tr><th class="col-md-4">Evacuation Info</th></tr>
+            <tr><th class="col-md-4"><h4>Evacuation Info</h4></th></tr>
             </thead>
             <tbody>
             <tr>
@@ -98,7 +98,7 @@
           <h4 class="modal-title">Twitter News - PAGASA-DOST</h4>
         </div>
         <div class="modal-body">
-          <a class="twitter-timeline" href="https://twitter.com/dost_pagasa" data-show-replies="true" data-height="450">Tweets by PAGASA-DOST</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <a class="twitter-timeline" href="https://twitter.com/dost_pagasa" data-show-replies="true" data-height="400">Tweets by PAGASA-DOST</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
     </div>
         
@@ -138,7 +138,252 @@
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
         zoom: 14,
-        center: {lat: 14.558387269243477, lng: 121.13609073337398}
+        center: {lat: 14.558387269243477, lng: 121.13609073337398},
+        styles: [
+                {
+                    "featureType": "administrative",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        },
+                        {
+                            "color": "#0096aa"
+                        },
+                        {
+                            "weight": "0.30"
+                        },
+                        {
+                            "saturation": "-75"
+                        },
+                        {
+                            "lightness": "5"
+                        },
+                        {
+                            "gamma": "1"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#0096aa"
+                        },
+                        {
+                            "saturation": "-75"
+                        },
+                        {
+                            "lightness": "5"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        {
+                            "color": "#ffe146"
+                        },
+                        {
+                            "visibility": "on"
+                        },
+                        {
+                            "weight": "6"
+                        },
+                        {
+                            "saturation": "-28"
+                        },
+                        {
+                            "lightness": "0"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative",
+                    "elementType": "labels.icon",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        },
+                        {
+                            "color": "#e6007e"
+                        },
+                        {
+                            "weight": "1"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "color": "#ffe146"
+                        },
+                        {
+                            "saturation": "-28"
+                        },
+                        {
+                            "lightness": "0"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "color": "#0096aa"
+                        },
+                        {
+                            "visibility": "simplified"
+                        },
+                        {
+                            "saturation": "-75"
+                        },
+                        {
+                            "lightness": "5"
+                        },
+                        {
+                            "gamma": "1"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "labels.text",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        },
+                        {
+                            "color": "#ffe146"
+                        },
+                        {
+                            "weight": 8
+                        },
+                        {
+                            "saturation": "-28"
+                        },
+                        {
+                            "lightness": "0"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        },
+                        {
+                            "color": "#0096aa"
+                        },
+                        {
+                            "weight": 8
+                        },
+                        {
+                            "lightness": "5"
+                        },
+                        {
+                            "gamma": "1"
+                        },
+                        {
+                            "saturation": "-75"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "labels.icon",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "simplified"
+                        },
+                        {
+                            "color": "#0096aa"
+                        },
+                        {
+                            "saturation": "-75"
+                        },
+                        {
+                            "lightness": "5"
+                        },
+                        {
+                            "gamma": "1"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        },
+                        {
+                            "color": "#0096aa"
+                        },
+                        {
+                            "saturation": "-75"
+                        },
+                        {
+                            "lightness": "5"
+                        },
+                        {
+                            "gamma": "1"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "labels.text",
+                    "stylers": [
+                        {
+                            "visibility": "simplified"
+                        },
+                        {
+                            "color": "#ffe146"
+                        },
+                        {
+                            "saturation": "-28"
+                        },
+                        {
+                            "lightness": "0"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "labels.icon",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                }
+            ]
         });
 
         <?php $i=-1; ?>
@@ -151,7 +396,8 @@
             marker = new google.maps.Marker({
                     position: {lat: {{ $evacuation->latitude }}, lng: {{ $evacuation->longitude }}},
                     map: map,
-                    title: '{{ $evacuation->name }}'
+                    title: '{{ $evacuation->name }}',
+                    icon: '{{ asset("image/marker.png") }}'
                 });
             marker.setMap(map);
             // markers.push(marker);
@@ -211,9 +457,9 @@
                 };
 
                 infoWindow.setPosition(pos);
-                infoWindow.setContent('You are here.');
+                infoWindow.setContent('<span style="color:#343477;"><h4><strong>You are here.</strong></h4></span>');
                 infoWindow.open(map);
-                //map.setCenter(pos);
+                map.setCenter(pos);
                 }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());
             });
@@ -254,7 +500,6 @@
             } else {
                 iconName = "/few-clouds";
             }
-
 
             weather_marker = new google.maps.Marker({
               position: {lat: lats[count],lng: lngs[count]},

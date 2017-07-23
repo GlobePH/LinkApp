@@ -59,7 +59,7 @@ class AndroidController extends Controller
         $deps=Depositor::where('user_id', '=', $user_id)->get();
         $deps=$deps->toArray();
 
-        $vols=Volunteer::where('id', '=', $user_id)->get();
+        $vols=Volunteer::where('user_id', '=', $user_id)->get();
         $vols=$vols->toArray();
 
         $arr=array();
@@ -93,12 +93,18 @@ class AndroidController extends Controller
         $user_id=LinkAppUser::where('username', $request->username)->first()->id;
         $disaster_id=$request->disaster_id;
 
-        $v=new Volunteer();
-        $v->user_id=$user_id;
-        $v->disaster_id=$disaster_id;
-        $v->save();
+		$v=Volunteer::where('user_id', $user_id)->where('disaster_id', $disaster_id)->first();
+		
+		if ($v==null) {
+			$v=new Volunteer();
+			$v->user_id=$user_id;
+			$v->disaster_id=$disaster_id;
+			$v->save();
 
-        return 1;
+			return 1;
+		}
+		
+		return 0;
     }
 
     public function deposit(Request $request) {
